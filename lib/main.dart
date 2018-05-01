@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:real_world_flutter_app/views/detail_page.dart';
 import 'dart:convert';
 
 import 'package:real_world_flutter_app/views/video_cell.dart';
@@ -14,6 +15,7 @@ class RealWorldApp extends StatefulWidget {
 }
 
 class RealWoldState extends State<RealWorldApp> {
+  
   var _isLoading = true;
   var videos;
 
@@ -70,17 +72,6 @@ class RealWoldState extends State<RealWorldApp> {
                         },
                       );
                     })),
-      ),
-    );
-  }
-}
-
-class DetailPage extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Detail page"),
       ),
     );
   }
