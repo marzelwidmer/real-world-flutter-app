@@ -17,6 +17,9 @@ class RealWoldState extends State<RealWorldApp>{
         appBar: new AppBar(
           title: new Text("Real World App Bar"),
         ),
+        body: new Center(
+          child: new CircularProgressIndicator(),
+        ),
       ), 
     );
   }
