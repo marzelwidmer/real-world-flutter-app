@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main() => runApp(new RealWorldApp());
 
@@ -11,6 +12,16 @@ class RealWorldApp extends StatefulWidget {
 
 class RealWoldState extends State<RealWorldApp> {
   var _isLoading = true;
+
+  _fetchData() async {
+    print("Attempting to fetch data from network.");
+    final url = "https://api.letsbuildthatapp.com/youtube/home_feed";
+    final response = await http.get(url);
+
+    if(response.statusCode == 200){
+      print(response.body);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +37,16 @@ class RealWoldState extends State<RealWorldApp> {
                   setState(() {
                     _isLoading = false;              
                   });
+
+                 _fetchData();
+
                 }),
           ],
         ),
         body: new Center(
           //child: new CircularProgressIndicator(),
-          child: _isLoading ? new CircularProgressIndicator() : new Text("Finished Loading..."),
+          child: _isLoading ? new CircularProgressIndicator() : 
+            new Text("Finished Loading..."),
         ),
       ),
     );
