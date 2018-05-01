@@ -12,6 +12,12 @@ class RealWorldApp extends StatefulWidget{
 class RealWoldState extends State<RealWorldApp>{
   @override
   Widget build(BuildContext context) {
-    return null;
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Real World App Bar"),
+        ),
+      ), 
+    );
   }
 }
