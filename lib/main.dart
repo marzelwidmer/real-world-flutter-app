@@ -24,11 +24,15 @@ class RealWoldState extends State<RealWorldApp> {
 
       final map = json.decode(response.body);
       final videosJson = map["videos"];
-      
+
       videosJson.forEach((video){
           // print(video["name"]);
           var v = new Video.fromJson(video);
           print(v.name);
+      });
+
+      setState(() {
+        _isLoading = false;              
       });
     }
   }
@@ -45,7 +49,7 @@ class RealWoldState extends State<RealWorldApp> {
                 onPressed: () {
                   print("Reloading....");
                   setState(() {
-                    _isLoading = false;              
+                    _isLoading = true;              
                   });
 
                  _fetchData();
